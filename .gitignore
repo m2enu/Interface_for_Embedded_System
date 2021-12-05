@@ -54,7 +54,4 @@ dkms.conf
 # STM32Cube files
 .settings/
 Debug/
-Core/
-Drivers/
 *.launch
-
