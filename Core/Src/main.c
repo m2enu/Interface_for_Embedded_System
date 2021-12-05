@@ -86,10 +86,7 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-  {
-	const IGpo* p = CGpoAsBlueLamp();
-	TimerHandlerConstruct(p);
-  }
+  TimerHandlerConstruct(&InstGpoGreenLed);
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */

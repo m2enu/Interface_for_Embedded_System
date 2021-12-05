@@ -7,10 +7,6 @@
 
 #include "IGpo.h"
 
-/**
- * @brief   Acquire instance of IGpo for Green LED
- * @return  Pointer to the instance
- */
-const IGpo* CGpoAsBlueLamp(void);
+extern const IGpo InstGpoGreenLed;
 
 #endif

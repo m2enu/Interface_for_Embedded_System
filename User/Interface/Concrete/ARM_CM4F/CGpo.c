@@ -22,7 +22,7 @@ static inline GPIO_PinState ToOnState(const IGpo* pThis);
 
 /**
  * @brief   Acquire GPO OFF state of specified IGpo interface
- * @return  ON state enumeration
+ * @return  OFF state enumeration
  * @retval  GPIO_PIN_SET    OFF state is high
  * @retval  GPIO_PIN_RESET  OFF state is low
  */
@@ -73,16 +73,15 @@ static const IGpoMethod GPO_METHOD = {
     &CGpoIsOff,
 };
 
-const IGpo* CGpoAsBlueLamp(void)
-{
-    static const IGpoExtraInfo exinf = {GPIOA, GPIO_PIN_5};
-    static const IGpo ret = {
-        &GPO_METHOD,        /* Pointer to interface method table */
-        GPO_LEVEL_HIGH,     /* Output ON level */
-        &exinf              /* Extra configuration */
-    };
-    return &ret;
-}
+/** Extra configuration for Green LED */
+static const IGpoExtraInfo exinfGreenLed = {GPIOA, GPIO_PIN_5};
+
+/** Instance for Green LED */
+const IGpo InstGpoGreenLed = {
+    &GPO_METHOD,    /* Pointer to interface method table */
+    GPO_LEVEL_HIGH, /* Output ON level */
+    &exinfGreenLed  /* Extra configuration */
+};
 
 static inline GPIO_PinState ToOnState(const IGpo* pThis)
 {
